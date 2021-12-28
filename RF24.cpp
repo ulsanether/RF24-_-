@@ -73,8 +73,10 @@ void RF24::csn(bool mode)
                 #elif F_CPU < 80000000
     _SPI.setClockDivider(SPI_CLOCK_DIV8);
                 #elif F_CPU < 160000000
-    _SPI.setClockDivider(SPI_CLOCK_DIV16);
-                #elif F_CPU < 320000000
+    _SPI.setClockDivider(SPI_CLOCK_DIV16); //
+                 #elif F_CPU == 240000000  // 
+	_SPI.setClockDivider(SPI_CLOCK_DIV2);  //         
+                #elif F_CPU < 320000000    //
     _SPI.setClockDivider(SPI_CLOCK_DIV32);
                 #elif F_CPU < 640000000
     _SPI.setClockDivider(SPI_CLOCK_DIV64);
